@@ -93,9 +93,14 @@ public class HelloApplication extends Application {
                 throw new RuntimeException(e);
                 //skrrrt
             }
-            if(!rs.next())
-            {
-                primary.setScene(CreateAccount.account);
+
+            try {
+                if(!rs.next())
+                {
+                    primary.setScene(CreateAccount.account);
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
 
         });
